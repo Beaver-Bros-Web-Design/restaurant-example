@@ -1,0 +1,23 @@
+
+.pdf-container {
+    max-width: 650px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .rpv-core__viewer {
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+  
+  .rpv-core__inner-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden !important;
+  }
+  
+  .rpv-core__page-layer {
+    overflow: hidden !important;
+  }
+  
