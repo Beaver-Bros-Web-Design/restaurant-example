@@ -10,11 +10,12 @@ function Navbar() {
         <Link to="/" className="hover:text-yellow-300">Home</Link>
         <Link to="/menu" className="hover:text-yellow-300">Menu</Link>
         <Link to="/drinks" className="hover:text-yellow-300">Drinks</Link>
+        <Link to="/catering" className="hover:text-yellow-300">Catering</Link>
       </div>
 
       <div>
         <a
-          href="https://facebook.com/Chimys"
+          href="https://facebook.com/Chimmys"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-500 hover:text-blue-300"
@@ -25,7 +26,7 @@ function Navbar() {
 
       <div>
         <a
-          href="https://instagram.com/Chimys"
+          href="https://instagram.com/Chimmys"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-500 hover:text-blue-300"
