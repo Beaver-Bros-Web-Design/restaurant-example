@@ -52,5 +52,6 @@ def get_all_docs():
             "file": base64.b64encode(doc["file"]).decode("utf-8") if doc.get("file") else None
         })
     return jsonify(docs)
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
