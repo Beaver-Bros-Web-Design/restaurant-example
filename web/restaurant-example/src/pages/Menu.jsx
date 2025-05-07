@@ -17,7 +17,7 @@ function Menu() {
         minHeight: "100vh",
         width: "100%",
         textAlign: "center",
-        backgroundImage: "url(/images/rest_background.jpg)",
+        backgroundImage: "url(/images/image.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
