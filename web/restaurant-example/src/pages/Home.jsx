@@ -6,7 +6,6 @@ function Home() {
   useEffect(() => {
     const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
-    // Load Google Maps script
     const scriptId = 'google-maps-script';
     if (!document.getElementById(scriptId)) {
       const script = document.createElement('script');
@@ -49,13 +48,13 @@ function Home() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column', // Stack children vertically
-        height: '100vh', // Full viewport height
-        textAlign: 'center', // Centers the h1 text
-        backgroundImage: 'url(/ChatGPT Image May 6, 2025, 01_51_34 PM.png)', // Reference to your local background image
-        backgroundSize: 'cover', // Ensures the background covers the entire page
-        backgroundPosition: 'center', // Centers the image
-        backgroundRepeat: 'no-repeat', // Prevents repeating the image
+        flexDirection: 'column', 
+        height: '100vh', 
+        textAlign: 'center', 
+        backgroundImage: 'url(/ChatGPT Image May 6, 2025, 01_51_34 PM.png)', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat', 
       }}
     >
       <h1>Welcome to Chimmys!</h1>
@@ -63,9 +62,9 @@ function Home() {
         id="map"
         ref={mapRef}
         style={{
-          height: '500px', // Fixed height for map
-          width: '80%', // Map width at 80% of viewport width
-          border: '1px solid #ccc', // Optional border for the map
+          height: '500px', 
+          width: '80%', 
+          border: '1px solid #ccc', 
         }}
       ></div>
     </div>

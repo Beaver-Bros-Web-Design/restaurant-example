@@ -1,13 +1,14 @@
-
 .pdf-container {
     max-width: 650px;
     width: 100%;
     overflow: hidden;
+    border: none;
   }
   
   .rpv-core__viewer {
     overflow: hidden !important;
     width: 100% !important;
+    border: none !important;
   }
   
   .rpv-core__inner-pages {
@@ -15,14 +16,40 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden !important;
+    border: none !important;
   }
   
   .rpv-core__page-layer {
     overflow: hidden !important;
+    border: none !important;
   }
-  
+
+  /* Remove any default borders from the PDF viewer */
+  .rpv-core__page {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove borders from the toolbar if present */
+  .rpv-core__toolbar {
+    border: none !important;
+  }
 
 #map {
   height: 400px; /* The height is 400 pixels */
   width: 100%; /* The width is the width of the web page */
+}
+
+.pdf-container .rpv-core__page,
+.pdf-container .rpv-core__page-layer,
+.pdf-container .rpv-core__viewer {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+.pdf-container,
+.pdf-container .rpv-core__viewer,
+.pdf-container .rpv-core__page {
+  background: transparent !important;
 }

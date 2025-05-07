@@ -24,29 +24,39 @@ function Menu() {
         padding: "2rem 0",
       }}
     >
-
       {/* PDF viewer container */}
-        
-        <div
-          className="pdf-container"
-          style={{
-            width: "100%",
-            height: "80vh", // Increased height
-            overflow: "hidden", // Changed to auto from hidden
-            zIndex: 2,
-          }}
+
+      <div
+        className="pdf-container"
+        style={{
+          width: "100%",
+         
+          overflow: "hidden", // Changed to auto from hidden
+          zIndex: 2,
+        }}
+      >
+        <Worker
+          workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
         >
-          <Worker
-            workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
-          >
-            <Viewer
-              fileUrl="/Cocktail Party Sample Menu.pdf"
-              plugins={[zoomPluginInstance]}
-            />
-          </Worker>
-        </div>
+          <Viewer
+            fileUrl="/nobumenu.pdf"
+            plugins={[zoomPluginInstance]}
+            
+            renderError={(error) => (
+              <div>Error loading PDF: {error.message}</div>
+            )}
+            renderLoader={() => <div>Loading...</div>}
+            scrollMode="Vertical"
+            initialPage={2}
+            
+            theme={{
+              theme: "dark",
+              isPrimary: true,
+            }}
+          />
+        </Worker>
       </div>
-    
+    </div>
   );
 }
 
