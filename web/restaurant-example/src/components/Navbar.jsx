@@ -1,51 +1,125 @@
-import { Link } from "react-router-dom";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import React from "react";
+import { Box, Stack, Link as MuiLink } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import logo from "../assets/chimmys.png"; // Make sure this is the correct path
+import XIcon from "@mui/icons-material/X";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import logo from "../assets/chimmys.png";
 
-function Navbar() {
+const navLinkStyle = {
+  fontWeight: "bold",
+  fontSize: "1rem",
+  color: "#e2ded3",
+  padding: "8px 16px",
+  borderRadius: "5px",
+  transition: "0.3s",
+  textDecoration: "none",
+  "&:hover": {
+    backgroundColor: "#cc9f4e",
+    color: "#e2ded3",
+    transform: "scale(1.05)",
+  },
+};
+
+const iconLinkStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "white",
+  borderRadius: "50%",
+  transition: "0.3s ease",
+  "&:hover": {
+    transform: "scale(1.1)",
+  },
+};
+
+export default function Navbar() {
   return (
-    <nav className="bg-[#1a1a1a] text-white px-6 py-4 shadow-md">
-      <div className="flex items-center justify-between max-w-1xl mx-auto w-full">
-
-  {/* Left: logo and nav */}
-  <div className="flex items-center gap-6">
-    <Link to="/">
-      <img src={logo} alt="Chimmy's Logo" className="h-10" />
-    </Link>
-    <div className="flex items-center gap-4 text-sm">
-
-      <Link to="/menu" className="hover:text-yellow-400 transition">Menu</Link>
-      <div className="border-l border-white h-5" />
-      <Link to="/drinks" className="hover:text-yellow-400 transition">Drinks</Link>
-      <div className="border-l border-white h-5" />
-      <Link to="/catering" className="hover:text-yellow-400 transition">Catering</Link>
-    </div>
-  </div>
-
-  {/* Right: social icons */}
-  <div className="flex gap-4">
-    <a
-      href="https://facebook.com/Chimmys"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-yellow-400 transition"
+    <Box
+      sx={{
+        fontFamily: "'Inter', sans-serif",
+        backgroundColor: "#1a1a1a",
+        color: "#e2ded3",
+        px: 4,
+        py: 2,
+        width: "100%",
+        boxShadow: 2,
+      }}
     >
-      <FacebookIcon fontSize="medium" />
-    </a>
-    <a
-      href="https://instagram.com/Chimmys"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-yellow-400 transition"
-    >
-      <InstagramIcon fontSize="medium" />
-    </a>
-  </div>
-</div>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        {/* Left: Logo */}
+        <Box component={RouterLink} to="/" sx={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={logo}
+            alt="Chimmy's Logo"
+            style={{ height: "50px", width: "auto" }}
+          />
+        </Box>
 
-    </nav>
+        {/* Center: Navigation Links */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flex: 1,
+            gap: 3,
+          }}
+        >
+          <RouterLink to="/menu" style={{ textDecoration: "none" }}>
+            <Box sx={navLinkStyle}>MENU</Box>
+          </RouterLink>
+          <RouterLink to="/drinks" style={{ textDecoration: "none" }}>
+            <Box sx={navLinkStyle}>DRINKS</Box>
+          </RouterLink>
+          <RouterLink to="/catering" style={{ textDecoration: "none" }}>
+            <Box sx={navLinkStyle}>CATERING</Box>
+          </RouterLink>
+        </Box>
+
+        {/* Right: Social Icons */}
+        <Stack direction="row" spacing={2}>
+          <MuiLink
+            href="https://instagram.com/Chimmys"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={iconLinkStyle}
+          >
+            <InstagramIcon sx={{ fontSize: 22 }} />
+          </MuiLink>
+          <MuiLink
+            href="https://x.com/Chimmys"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={iconLinkStyle}
+          >
+            <XIcon sx={{ fontSize: 22 }} />
+          </MuiLink>
+          <MuiLink
+            href="https://facebook.com/Chimmys"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={iconLinkStyle}
+          >
+            <FacebookIcon sx={{ fontSize: 22 }} />
+          </MuiLink>
+          <MuiLink
+            href="https://pinterest.com/Chimmys"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={iconLinkStyle}
+          >
+            <PinterestIcon sx={{ fontSize: 22 }} />
+          </MuiLink>
+        </Stack>
+      </Box>
+    </Box>
   );
 }
-
-export default Navbar;
