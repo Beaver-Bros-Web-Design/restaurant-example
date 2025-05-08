@@ -1,12 +1,12 @@
 import React from "react";
 import logo from "../assets/chimmys.png"; // Make sure this is the correct path
-import { Stack, Grid, Box, Typography } from '@mui/material';
+import { Stack, Grid, Box } from '@mui/material';
 import { Link } from "react-router-dom";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
-    // <nav className="bg-[#1a1a1a] text-white px-6 py-4 shadow-md">
+import BeaverBroTypography from "./BeaverBro";
 
 
 const navLinkStyle = {
@@ -31,7 +31,7 @@ function Footer () {
                 <Grid size={12} sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
                     <Stack sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
                     <img src={logo} style={{ width: '30vw', height: 'auto' }} alt="Chimmy's Logo"/>
-                    <Typography>fine dining and a good time</Typography>
+
                     </Stack>
                 </Grid>
                 <Grid size={12} sx={{ display: "flex", backgroundColor: 'none', paddingTop: 0, justifyContent:'center', alignItems:'center'}}>
@@ -109,8 +109,13 @@ function Footer () {
                             transform: 'scale(1.1)'
                             }
                         }}/>
-                        </Link>           
+                        </Link>
+                                   
                     </Stack>
+               
+                </Grid>
+                <Grid size={12}>
+                    <BeaverBroTypography/>
                 </Grid>
             </Grid>
         </Box>
