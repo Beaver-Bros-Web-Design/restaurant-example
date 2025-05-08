@@ -92,7 +92,17 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-            <InstagramIcon sx={{ fontSize: 22 }} />
+                                    <InstagramIcon sx={{
+                            borderRadius: '50%', // Circular shape
+                            padding: 1,
+                            width: 40,
+                            height: 'auto',
+                            transition: '0.3s',
+                            '&:hover': {
+                            backgroundColor: '#ff4081', // Instagram color
+                            transform: 'scale(1.1)' // Slight zoom on hover
+                            }
+                        }}/> 
           </MuiLink>
           <MuiLink
             href="https://x.com/Chimmys"
@@ -100,7 +110,18 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-            <XIcon sx={{ fontSize: 22 }} />
+                                   <XIcon sx={{
+                           
+                            borderRadius: '50%', // Circular shape
+                            padding: 1,
+                            width: 40,
+                            height: 'auto',
+                            transition: '0.3s',
+                            '&:hover': {
+                            backgroundColor: '#1DA1F2', 
+                            transform: 'scale(1.1)'
+                            }
+                        }}/>
           </MuiLink>
           <MuiLink
             href="https://facebook.com/Chimmys"
@@ -108,7 +129,17 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-            <FacebookIcon sx={{ fontSize: 22 }} />
+                                    <FacebookIcon sx={{
+                            borderRadius: '50%',
+                            padding: 1,
+                            width: 40,
+                            height: 'auto',
+                            transition: '0.3s',
+                            '&:hover': {
+                            backgroundColor: '#1877F2', 
+                            transform: 'scale(1.1)'
+                            }
+                        }}/>
           </MuiLink>
           <MuiLink
             href="https://pinterest.com/Chimmys"
@@ -116,7 +147,17 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-            <PinterestIcon sx={{ fontSize: 22 }} />
+                                    <PinterestIcon sx={{
+                            borderRadius: '50%',
+                            padding: 1,
+                            width: 40,
+                            height: 'auto',
+                            transition: '0.3s',
+                            '&:hover': {
+                            backgroundColor: '#E60023', // Pinterest brand color
+                            transform: 'scale(1.1)'
+                            }
+                        }}/>
           </MuiLink>
         </Stack>
       </Box>
