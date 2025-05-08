@@ -16,3 +16,11 @@ Create a .env file in the root directory and add your MongoDB connection string:
 
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/<dbname>
 
+
+### A list of all .env variables in (in server/.env):
+MONGO_URI=
+DATABASE_NAME=
+MENU_COLLECTION_NAME=
+DEBUG=
+PORT=
+HOST=
