@@ -6,21 +6,25 @@ import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import logo from "../assets/chimmys.png";
+import { useTheme } from "@mui/material/styles";
 
-const navLinkStyle = {
+const navLinkStyle = (theme) => ({
   fontWeight: "bold",
   fontSize: "1rem",
-  color: "#e2ded3",
+  color: theme.palette.primary.main,
   padding: "8px 16px",
   borderRadius: "5px",
+
   transition: "0.3s",
   textDecoration: "none",
   "&:hover": {
-    backgroundColor: "#cc9f4e",
-    color: "#e2ded3",
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
     transform: "scale(1.05)",
   },
-};
+});
+
+
 
 const iconLinkStyle = {
   display: "flex",
@@ -35,12 +39,14 @@ const iconLinkStyle = {
 };
 
 export default function Navbar() {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
-        fontFamily: "'Inter', sans-serif",
-        backgroundColor: "#1a1a1a",
-        color: "#e2ded3",
+        fontFamily: theme.typography.fontFamily,
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
         px: 4,
         py: 2,
         width: "100%",
@@ -56,7 +62,11 @@ export default function Navbar() {
         }}
       >
         {/* Left: Logo */}
-        <Box component={RouterLink} to="/" sx={{ display: "flex", alignItems: "center" }}>
+        <Box
+          component={RouterLink}
+          to="/"
+          sx={{ display: "flex", alignItems: "center" }}
+        >
           <img
             src={logo}
             alt="Chimmy's Logo"
@@ -69,18 +79,18 @@ export default function Navbar() {
           sx={{
             display: "flex",
             justifyContent: "center",
-            flex: 1,
+            flex: 2,
             gap: 3,
           }}
         >
           <RouterLink to="/menu" style={{ textDecoration: "none" }}>
-            <Box sx={navLinkStyle}>MENU</Box>
+            <Box sx={navLinkStyle(theme)}>MENU</Box>
           </RouterLink>
           <RouterLink to="/drinks" style={{ textDecoration: "none" }}>
-            <Box sx={navLinkStyle}>DRINKS</Box>
+            <Box sx={navLinkStyle(theme)}>DRINKS</Box>
           </RouterLink>
           <RouterLink to="/catering" style={{ textDecoration: "none" }}>
-            <Box sx={navLinkStyle}>CATERING</Box>
+            <Box sx={navLinkStyle(theme)}>CATERING</Box>
           </RouterLink>
         </Box>
 
@@ -92,17 +102,19 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-                                    <InstagramIcon sx={{
-                            borderRadius: '50%', // Circular shape
-                            padding: 1,
-                            width: 40,
-                            height: 'auto',
-                            transition: '0.3s',
-                            '&:hover': {
-                            backgroundColor: '#ff4081', // Instagram color
-                            transform: 'scale(1.1)' // Slight zoom on hover
-                            }
-                        }}/> 
+            <InstagramIcon
+              sx={{
+                borderRadius: "50%",
+                padding: 1,
+                width: 40,
+                height: "auto",
+                transition: "0.3s",
+                "&:hover": {
+                  backgroundColor: "#ff4081",
+                  transform: "scale(1.1)",
+                },
+              }}
+            />
           </MuiLink>
           <MuiLink
             href="https://x.com/Chimmys"
@@ -110,18 +122,19 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-                                   <XIcon sx={{
-                           
-                            borderRadius: '50%', // Circular shape
-                            padding: 1,
-                            width: 40,
-                            height: 'auto',
-                            transition: '0.3s',
-                            '&:hover': {
-                            backgroundColor: '#1DA1F2', 
-                            transform: 'scale(1.1)'
-                            }
-                        }}/>
+            <XIcon
+              sx={{
+                borderRadius: "50%",
+                padding: 1,
+                width: 40,
+                height: "auto",
+                transition: "0.3s",
+                "&:hover": {
+                  backgroundColor: "#1DA1F2",
+                  transform: "scale(1.1)",
+                },
+              }}
+            />
           </MuiLink>
           <MuiLink
             href="https://facebook.com/Chimmys"
@@ -129,17 +142,19 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-                                    <FacebookIcon sx={{
-                            borderRadius: '50%',
-                            padding: 1,
-                            width: 40,
-                            height: 'auto',
-                            transition: '0.3s',
-                            '&:hover': {
-                            backgroundColor: '#1877F2', 
-                            transform: 'scale(1.1)'
-                            }
-                        }}/>
+            <FacebookIcon
+              sx={{
+                borderRadius: "50%",
+                padding: 1,
+                width: 40,
+                height: "auto",
+                transition: "0.3s",
+                "&:hover": {
+                  backgroundColor: "#1877F2",
+                  transform: "scale(1.1)",
+                },
+              }}
+            />
           </MuiLink>
           <MuiLink
             href="https://pinterest.com/Chimmys"
@@ -147,17 +162,19 @@ export default function Navbar() {
             rel="noopener noreferrer"
             sx={iconLinkStyle}
           >
-                                    <PinterestIcon sx={{
-                            borderRadius: '50%',
-                            padding: 1,
-                            width: 40,
-                            height: 'auto',
-                            transition: '0.3s',
-                            '&:hover': {
-                            backgroundColor: '#E60023', // Pinterest brand color
-                            transform: 'scale(1.1)'
-                            }
-                        }}/>
+            <PinterestIcon
+              sx={{
+                borderRadius: "50%",
+                padding: 1,
+                width: 40,
+                height: "auto",
+                transition: "0.3s",
+                "&:hover": {
+                  backgroundColor: "#E60023",
+                  transform: "scale(1.1)",
+                },
+              }}
+            />
           </MuiLink>
         </Stack>
       </Box>
