@@ -7,14 +7,16 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import logo from "../assets/chimmys.png";
 import { useTheme } from "@mui/material/styles";
+import { useLocation } from "react-router-dom";
 
-const navLinkStyle = (theme) => ({
+
+const navLinkStyle = (theme, isActive) => ({
   fontWeight: "bold",
   fontSize: "1rem",
   color: theme.palette.primary.main,
   padding: "8px 16px",
   borderRadius: "5px",
-
+  borderBottom: isActive ? `3px solid ${theme.palette.secondary.main}` : "3px solid transparent",
   transition: "0.3s",
   textDecoration: "none",
   "&:hover": {
@@ -40,6 +42,7 @@ const iconLinkStyle = {
 
 export default function Navbar() {
   const theme = useTheme();
+  const location = useLocation();
 
   return (
     <Box
@@ -83,15 +86,16 @@ export default function Navbar() {
             gap: 3,
           }}
         >
-          <RouterLink to="/menu" style={{ textDecoration: "none" }}>
-            <Box sx={navLinkStyle(theme)}>MENU</Box>
-          </RouterLink>
-          <RouterLink to="/drinks" style={{ textDecoration: "none" }}>
-            <Box sx={navLinkStyle(theme)}>DRINKS</Box>
-          </RouterLink>
-          <RouterLink to="/catering" style={{ textDecoration: "none" }}>
-            <Box sx={navLinkStyle(theme)}>CATERING</Box>
-          </RouterLink>
+<RouterLink to="/menu" style={{ textDecoration: "none" }}>
+  <Box sx={navLinkStyle(theme, location.pathname === "/menu")}>MENU</Box>
+</RouterLink>
+<RouterLink to="/drinks" style={{ textDecoration: "none" }}>
+  <Box sx={navLinkStyle(theme, location.pathname === "/drinks")}>DRINKS</Box>
+</RouterLink>
+<RouterLink to="/catering" style={{ textDecoration: "none" }}>
+  <Box sx={navLinkStyle(theme, location.pathname === "/catering")}>CATERING</Box>
+</RouterLink>
+
         </Box>
 
         {/* Right: Social Icons */}
