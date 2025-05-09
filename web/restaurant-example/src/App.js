@@ -4,6 +4,7 @@ import Menu from './pages/Menu';
 import Drinks from './pages/Drinks';
 import Catering from './pages/Catering';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/drinks" element={<Drinks />} />
         <Route path="/Catering" element={<Catering />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }
