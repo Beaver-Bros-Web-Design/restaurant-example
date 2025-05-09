@@ -21,7 +21,7 @@ const navLinkStyle = (theme, isActive) => ({
   "&:hover": {
     backgroundColor: theme.palette.secondary.main ,
     color: "white",
-    transform: "scale(1.05)",
+    transform: "scale(1.)",
   },
 });
 
@@ -224,7 +224,7 @@ export default function Navbar() {
                   "&:hover": {
                     
                     color: "white",
-                    transform: "scale(1.2)",
+                    transform: "scale(1.)",
                   },
                 }}
               />
