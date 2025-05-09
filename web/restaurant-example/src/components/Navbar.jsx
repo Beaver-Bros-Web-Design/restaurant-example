@@ -156,9 +156,9 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    backgroundColor: "#ff4081",
+                    
                     color: "white",
-                    transform: "scale(1.1)",
+                    transform: "scale(1.2)",
                   },
                 }}
               />
@@ -178,9 +178,9 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    backgroundColor: "#1DA1F2",
+                    
                     color: "white",
-                    transform: "scale(1.1)",
+                    transform: "scale(1.2)",
                   },
                 }}
               />
@@ -200,9 +200,9 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    backgroundColor: "#1877F2",
+                    
                     color: "white",
-                    transform: "scale(1.1)",
+                    transform: "scale(1.2)",
                   },
                 }}
               />
@@ -222,9 +222,9 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    backgroundColor: "#E60023",
+                    
                     color: "white",
-                    transform: "scale(1.1)",
+                    transform: "scale(1.2)",
                   },
                 }}
               />
