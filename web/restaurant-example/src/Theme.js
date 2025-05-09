@@ -1,6 +1,5 @@
-
 import { createTheme } from "@mui/material/styles";
-import "@fontsource/poppins"; 
+import "@fontsource/poppins";
 
 const theme = createTheme({
   palette: {
@@ -11,7 +10,8 @@ const theme = createTheme({
       main: "#dcac58", //orange/gold
     },
     background: {
-      default: "#1a1a1a", //dark grey
+      main: "#1a1a1a", //dark grey
+      default: "black",
     },
   },
   typography: {
