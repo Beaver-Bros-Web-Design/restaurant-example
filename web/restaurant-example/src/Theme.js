@@ -5,13 +5,13 @@ import "@fontsource/poppins";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#e2ded3", 
+      main: "#e2ded3", //white
     },
     secondary: {
-      main: "#dcac58",
+      main: "#dcac58", //orange/gold
     },
     background: {
-      default: "#1a1a1a",
+      default: "#1a1a1a", //dark grey
     },
   },
   typography: {
