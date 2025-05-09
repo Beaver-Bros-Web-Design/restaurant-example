@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/chimmys.png"; // Make sure this is the correct path
-import { Stack, Grid, Box } from '@mui/material';
+import { Stack, Grid, Box, Divider } from '@mui/material';
 import { Link } from "react-router-dom";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
@@ -27,33 +27,36 @@ const navLinkStyle = {
 function Footer () {
     return (
         <Box sx={{position:"relative", bottom:0, width: '100%'}}>
-            <Grid container spacing={2} sx={{ backgroundColor: '#1a1a1a',color: '#e2ded3', padding: 1, height:"auto" }}>
+            <Grid container spacing={2} sx={{ backgroundColor: "black",color: '#e2ded3', padding: 1, height:"auto" }}>
                 <Grid size={12} sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
                     <Stack sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
                     <img src={logo} style={{ width: '30vw', height: 'auto' }} alt="Chimmy's Logo"/>
 
                     </Stack>
                 </Grid>
-                <Grid size={12} sx={{ display: "flex", backgroundColor: 'none', paddingTop: 0, justifyContent:'center', alignItems:'center'}}>
-                    <Stack spacing={4} direction="row" sx={{ display: "flex", backgroundColor: 'none', paddingTop: 1, justifyContent:'center', alignItems:'center'}}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
-                    <Box sx={navLinkStyle}>HOME</Box>
-                    </Link>
-
-                    <Link to="/menu" style={{ textDecoration: "none" }}>
-                    <Box sx={navLinkStyle}>MENU</Box>
-                    </Link>
-
-                    <Link to="/drinks" style={{ textDecoration: "none" }}>
-                    <Box sx={navLinkStyle}>DRINKS</Box>
-                    </Link>
-
-                    <Link to="/catering" style={{ textDecoration: "none" }}>
-                    <Box sx={navLinkStyle}>CATERING</Box>
-                    </Link>
-             
+                <Grid size={12} sx={{ display: "flex", justifyContent: "center", alignItems: "center", paddingTop: 0 }}>
+                    <Stack spacing={2} direction="row" sx={{ display: "flex", justifyContent:"center", alignItems: "center" }}>
+                        <Divider  sx={{ height: "2px", backgroundColor: "#e2ded3", width:"100%" }} />
+                        
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                            <Box sx={navLinkStyle}>HOME</Box>
+                        </Link>
+                        <Link to="/menu" style={{ textDecoration: "none" }}>
+                            <Box sx={navLinkStyle}>MENU</Box>
+                        </Link>
+                        <Link to="/drinks" style={{ textDecoration: "none" }}>
+                            <Box sx={navLinkStyle}>DRINKS</Box>
+                        </Link>
+                        <Link to="/catering" style={{ textDecoration: "none" }}>
+                            <Box sx={navLinkStyle}>CATERING</Box>
+                        </Link>
+                        
+                        <Divider orientation="vertical" sx={{ height: "2px", backgroundColor: "#e2ded3", width:"100%" }} />
                     </Stack>
                 </Grid>
+
+         
+      
                 <Grid size={12} sx={{ display: "flex", backgroundColor: 'none', paddingBottom:2, justifyContent:'center', alignItems:'center'}}>
                     <Stack spacing={4} direction="row" sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
                         <Link to="https://instagram.com/Chimmys">
