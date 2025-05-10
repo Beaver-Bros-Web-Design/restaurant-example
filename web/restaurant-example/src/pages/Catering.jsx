@@ -7,7 +7,7 @@ function CateringForm() {
 
 function Catering() {
   return (
-    <div style={{ position: "relative", height: "auto" }}>
+    <div style={{ position: "relative", height: "100vh" }}> {/* Set height to 100vh */}
       {/* Background image */}
       <div
         style={{
@@ -73,3 +73,4 @@ function Catering() {
 }
 
 export default Catering;
+
