@@ -1,6 +1,7 @@
 import React from "react";
 import { Worker, Viewer } from "@react-pdf-viewer/core";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
+import { Box } from "@mui/material"; // Import Box from Material UI
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "./../Pdf.css";
 
@@ -8,54 +9,54 @@ function Menu() {
   const zoomPluginInstance = zoomPlugin();
 
   return (
-    <div
-      style={{
+    <div style={{ position: "relative", height: "auto" }}>
+
+    
+
+    <Box
+      sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        minHeight: "100vh",
         width: "100%",
         textAlign: "center",
-        backgroundImage: "url(/images/image.jpg)",
+        backgroundImage: "url(/images/menu_background.png)", 
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        padding: "2rem 0",
+        paddingY: "2rem",
       }}
     >
-      {/* PDF viewer container */}
 
-      <div
+
+
+
+      <Box
         className="pdf-container"
-        style={{
+        sx={{
           width: "100%",
+          overflow: "hidden",
          
-          overflow: "hidden", // Changed to auto from hidden
-          zIndex: 2,
         }}
       >
-        <Worker
-          workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
-        >
-          <Viewer
-            fileUrl="/nobumenu.pdf"
-            plugins={[zoomPluginInstance]}
-            
-            renderError={(error) => (
-              <div>Error loading PDF: {error.message}</div>
-            )}
-            renderLoader={() => <div>Loading...</div>}
-            scrollMode="Vertical"
-            initialPage={2}
-            
-            theme={{
-              theme: "dark",
-              isPrimary: true,
-            }}
-          />
-        </Worker>
-      </div>
+        <Box sx={{}}>
+          <Worker
+            workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
+          >
+            <Viewer
+              fileUrl="/nobumenu.pdf"
+              plugins={[zoomPluginInstance]}
+              renderError={(error) => (
+                <div>Error loading PDF: {error.message}</div>
+              )}
+              renderLoader={() => <div>Loading...</div>}
+              scrollMode="Vertical"
+            />
+          </Worker>
+        </Box>
+      </Box>
+    </Box>
     </div>
   );
 }
