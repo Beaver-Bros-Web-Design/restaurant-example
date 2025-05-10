@@ -1,13 +1,10 @@
 import { Box, Typography, Stack } from "@mui/material";
 import React from "react";
-
-function CateringForm() {
-  return <></>;
-}
+import CateringForm from "../components/CateringForm";
 
 function Catering() {
   return (
-    <div style={{ position: "relative", height: "100vh" }}> {/* Set height to 100vh */}
+    <div style={{ position: "relative", height: "auto" }}>
       {/* Background image */}
       <div
         style={{
@@ -56,6 +53,7 @@ function Catering() {
               fontSize: "20px",
               textAlign: "center",
               width: "70%",
+              paddingBottom: "30px",
             }}
           >
             Please fill out the form below and we'll do our best to accommodate
@@ -63,9 +61,9 @@ function Catering() {
             party/celebration memorable.
           </Typography>
 
-          <CateringForm sx={{ paddingTop: "30px", paddingBottom: "30px" }} />
+          <CateringForm />
 
-          <Box sx={{ backgroundColor: "blue", height: "1000px" }}></Box>
+          <Box sx={{ height: "100px" }} />
         </Stack>
       </div>
     </div>
@@ -73,4 +71,3 @@ function Catering() {
 }
 
 export default Catering;
-
