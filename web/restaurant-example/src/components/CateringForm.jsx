@@ -12,6 +12,23 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function FormErrorText({ formError }) {
+  if (formError === true) {
+    return (
+      <Typography sx={{ color: "red", fontSize: "12px" }}>
+        Please fill out all fields in form.
+      </Typography>
+    );
+  } else {
+    return null;
+  }
+}
 
 function clearFormData(setFormData) {
   const clearedData = {
@@ -26,20 +43,21 @@ function clearFormData(setFormData) {
   setFormData(clearedData);
 }
 
-async function onSubmit(formData, setFormData) {
-  console.log(formData);
-  clearFormData(setFormData);
-  console.log(formData);
+async function postFormData(formData) {
+  console.log("Form data: ", formData);
 }
 
-function onSubmitClick(formData, setFormData) {
+function onSubmitClick(formData, setFormData, setFormError, navigate) {
   const isFormValid = Object.values(formData).every(
     (value) => value !== null && value !== ""
   );
   if (isFormValid) {
-    onSubmit(formData, setFormData);
+    postFormData(formData);
+    clearFormData(setFormData);
+    navigate("/catering-success");
   } else {
-    console.log("data is missing values");
+    setFormError(true);
+    scrollToTop();
   }
 }
 
@@ -97,8 +115,9 @@ function NumberPeople({ formData, handleChange }) {
 }
 
 function CateringForm() {
+  const [formError, setFormError] = useState(false);
   const theme = useTheme();
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -128,7 +147,7 @@ function CateringForm() {
       }}
     >
       <Box sx={{ padding: "10px" }} />
-
+      <FormErrorText formError={formError} />
       <TextField
         id="outlined-basic"
         label="First Name"
@@ -166,6 +185,7 @@ function CateringForm() {
         id="outlined-basic"
         label="Phone Number"
         name="phoneNumber"
+        type="number"
         onChange={handleChange}
         value={formData.phoneNumber}
         variant="outlined"
@@ -184,7 +204,9 @@ function CateringForm() {
       <Button
         sx={{ width: "90%" }}
         variant="contained"
-        onClick={() => onSubmitClick(formData, setFormData)}
+        onClick={() =>
+          onSubmitClick(formData, setFormData, setFormError, navigate)
+        }
       >
         <Typography
           sx={{ fontSize: "20px", fontWeight: "bold", color: "dark" }}
