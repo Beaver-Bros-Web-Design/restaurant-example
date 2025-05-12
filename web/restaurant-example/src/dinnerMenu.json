@@ -1,0 +1,159 @@
+[
+  {
+    "title": "Antipasti",
+    "items": [
+      {
+        "name": "Bruschetta",
+        "description": "Grilled bread with tomato and basil.",
+        "price": 8.5,
+        "dietaryIcons": ["Vegetarian"]
+      },
+      {
+        "name": "Caprese Salad",
+        "description": "Fresh mozzarella, tomatoes, and basil.",
+        "price": 10,
+        "dietaryIcons": ["Vegetarian", "Gluten-Free"]
+      },
+      {
+        "name": "Calamari Fritti",
+        "description": "Crispy fried calamari with lemon and marinara sauce.",
+        "price": 12.5
+      },
+      {
+        "name": "Antipasto Misto",
+        "description": "Selection of cured meats, cheeses, olives, and marinated vegetables.",
+        "price": 16
+      },
+      {
+        "name": "Arancini",
+        "description": "Sicilian rice balls stuffed with ragù, peas, and mozzarella.",
+        "price": 9
+      },
+      {
+        "name": "Carpaccio di Manzo",
+        "description": "Thinly sliced raw beef with arugula, capers, and Parmigiano-Reggiano.",
+        "price": 14,
+        "dietaryIcons": ["Gluten-Free"]
+      }
+    ]
+  },
+  {
+    "title": "Insalate",
+    "items": [
+      {
+        "name": "Insalata Mista",
+        "description": "Mixed greens with cherry tomatoes, cucumber, and house vinaigrette.",
+        "price": 8,
+        "dietaryIcons": ["Vegetarian", "Gluten-Free"]
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Romaine lettuce with Caesar dressing, croutons, and Parmigiano-Reggiano.",
+        "price": 10,
+        "addOns": ["Grilled Chicken", "Grilled Shrimp"]
+      },
+      {
+        "name": "Insalata di Rucola",
+        "description": "Arugula with pears, walnuts, and gorgonzola cheese.",
+        "price": 12,
+        "dietaryIcons": ["Vegetarian", "Gluten-Free"],
+        "addOns": ["Extra Cheese", "Gluten-Free Pasta"]
+      }
+    ]
+  },
+  {
+    "title": "Primi",
+    "items": [
+      {
+        "name": "Spaghetti Carbonara",
+        "description": "Classic Italian pasta with pancetta and egg.",
+        "price": 15,
+        "addOns": ["Extra Cheese", "Gluten-Free Pasta"]
+      },
+      {
+        "name": "Risotto",
+        "description": "Creamy rice with mushrooms.",
+        "price": 14,
+        "dietaryIcons": ["Vegetarian"]
+      },
+      {
+        "name": "Linguine alle Vongole",
+        "description": "Linguine with fresh clams, white wine, garlic, and parsley.",
+        "price": 18
+      },
+      {
+        "name": "Ravioli di Ricotta e Spinaci",
+        "description": "Homemade ravioli filled with ricotta and spinach in sage butter sauce.",
+        "price": 16,
+        "dietaryIcons": ["Vegetarian"]
+      },
+      {
+        "name": "Pappardelle al Ragù",
+        "description": "Wide ribbon pasta with slow-cooked beef ragù.",
+        "price": 17
+      },
+      {
+        "name": "Gnocchi al Pesto",
+        "description": "Potato dumplings with basil pesto and Parmigiano-Reggiano.",
+        "price": 15,
+        "dietaryIcons": ["Vegetarian"]
+      }
+    ]
+  },
+
+  {
+    "title": "Contorni",
+    "items": [
+      {
+        "name": "Patate Arrosto",
+        "description": "Rosemary roasted potatoes.",
+        "price": 6,
+        "dietaryIcons": ["Vegetarian", "Gluten-Free"]
+      },
+      {
+        "name": "Verdure Grigliate",
+        "description": "Grilled seasonal vegetables with olive oil and balsamic glaze.",
+        "price": 7,
+        "dietaryIcons": ["Vegetarian", "Gluten-Free"]
+      },
+      {
+        "name": "Spinaci Saltati",
+        "description": "Sautéed spinach with garlic and chili flakes.",
+        "price": 6,
+        "dietaryIcons": ["Vegetarian", "Gluten-Free"]
+      }
+    ]
+  },
+  {
+    "title": "Dolci",
+    "items": [
+      {
+        "name": "Tiramisu",
+        "description": "Coffee-flavored Italian dessert.",
+        "price": 7
+      },
+      {
+        "name": "Gelato",
+        "description": "Italian-style ice cream.",
+        "price": 5,
+        "dietaryIcons": ["Gluten-Free"]
+      },
+      {
+        "name": "Panna Cotta",
+        "description": "Vanilla cream dessert with berry coulis.",
+        "price": 7,
+        "dietaryIcons": ["Gluten-Free"]
+      },
+      {
+        "name": "Cannoli Siciliani",
+        "description": "Crispy pastry tubes filled with sweet ricotta and chocolate chips.",
+        "price": 8
+      },
+      {
+        "name": "Torta della Nonna",
+        "description": "Custard tart with pine nuts and powdered sugar.",
+        "price": 7
+      }
+    ]
+  }
+]

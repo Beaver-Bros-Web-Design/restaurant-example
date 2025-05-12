@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Cocktails",
+    "items": [
+      {
+        "name": "Negroni",
+        "description": "Gin, Campari, and sweet vermouth.",
+        "price": 12
+      },
+      {
+        "name": "Aperol Spritz",
+        "description": "Aperol, Prosecco, and soda water.",
+        "price": 11
+      },
+      {
+        "name": "Espresso Martini",
+        "description": "Vodka, espresso, coffee liqueur.",
+        "price": 13
+      }
+    ]
+  },
+  {
+    "title": "Wine",
+    "items": [
+      {
+        "name": "Chianti Classico",
+        "description": "Classic red wine from Tuscany.",
+        "price": 10
+      },
+      {
+        "name": "Pinot Grigio",
+        "description": "Crisp and refreshing white wine.",
+        "price": 9
+      },
+      {
+        "name": "Prosecco",
+        "description": "Italian sparkling white wine.",
+        "price": 10
+      }
+    ]
+  },
+  {
+    "title": "Non-Alcoholic",
+    "items": [
+      {
+        "name": "Limonata",
+        "description": "Italian sparkling lemonade.",
+        "price": 4
+      },
+      {
+        "name": "Iced Tea",
+        "description": "Fresh brewed black tea, served cold.",
+        "price": 3
+      },
+      {
+        "name": "Still Water",
+        "description": "Bottled natural mineral water.",
+        "price": 3
+      }
+    ]
+  }
+]

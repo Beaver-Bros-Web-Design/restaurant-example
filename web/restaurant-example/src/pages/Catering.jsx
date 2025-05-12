@@ -5,7 +5,7 @@ import CateringForm from "../components/CateringForm";
 function Catering() {
   return (
     <div style={{ position: "relative", height: "auto" }}>
-      {/* Background image */}
+  
       <div
         style={{
           backgroundImage: "url(/images/catering-background.png)",
