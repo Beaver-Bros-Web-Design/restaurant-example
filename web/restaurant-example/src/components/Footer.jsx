@@ -44,9 +44,7 @@ function Footer () {
                         <Link to="/menu" style={{ textDecoration: "none" }}>
                             <Box sx={navLinkStyle}>MENU</Box>
                         </Link>
-                        <Link to="/drinks" style={{ textDecoration: "none" }}>
-                            <Box sx={navLinkStyle}>DRINKS</Box>
-                        </Link>
+
                         <Link to="/catering" style={{ textDecoration: "none" }}>
                             <Box sx={navLinkStyle}>CATERING</Box>
                         </Link>
