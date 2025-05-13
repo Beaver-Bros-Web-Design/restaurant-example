@@ -134,11 +134,7 @@ export default function Navbar() {
                 </Box>
               </RouterLink>
 
-              <RouterLink to="/hours" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/hours")}>
-                  HOURS & LOCATION
-                </Box>
-              </RouterLink>
+    
             </Box>
 
             {/* Right Line */}

@@ -40,6 +40,7 @@ function Menu() {
         }}
       >
                 <ImageSlideshow
+          
           images={[
             "images/menuSlideshow/qlpr6886.png",
             "images/menuSlideshow/ChatGPT Image May 12, 2025, 03_19_29 PM.png",
