@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import Hours from "./pages/Hours"
 
 import Catering from "./pages/Catering";
 import CateringSuccess from "./pages/Catering-Success";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/catering" element={<Catering />} />
+        <Route path="/hours" element={<Hours />} />
         <Route path="/catering-success" element={<CateringSuccess />} />
       </Routes>
       <Footer />

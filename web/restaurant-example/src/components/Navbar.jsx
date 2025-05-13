@@ -120,6 +120,10 @@ export default function Navbar() {
               <RouterLink to="/catering" style={{ textDecoration: "none" }}>
                 <Box sx={navLinkStyle(theme, location.pathname === "/catering")}>CATERING</Box>
               </RouterLink>
+
+              <RouterLink to="/hours" style={{ textDecoration: "none" }}>
+                <Box sx={navLinkStyle(theme, location.pathname === "/hours")}>HOURS & LOCATION</Box>
+              </RouterLink>
             </Box>
             
             {/* Right Line */}
