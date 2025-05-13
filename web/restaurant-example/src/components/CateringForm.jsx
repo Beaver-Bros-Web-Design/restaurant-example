@@ -44,7 +44,27 @@ function clearFormData(setFormData) {
 }
 
 async function postFormData(formData) {
-  console.log("Form data: ", formData);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  console.log(API_BASE_URL);
+  try {
+    const response = await fetch(`${API_BASE_URL}/upload-catering-form`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to submit form");
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    throw error;
+  }
 }
 
 function onSubmitClick(formData, setFormData, setFormError, navigate) {
@@ -61,7 +81,16 @@ function onSubmitClick(formData, setFormData, setFormError, navigate) {
   }
 }
 
-const textFieldStyle = { width: "90%", paddingBottom: "20px" };
+const textFieldStyle = {
+  width: "90%",
+  paddingBottom: "20px",
+  "& .MuiInputBase-input": {
+    color: "black", // This affects the actual input text
+  },
+  "& .MuiInputLabel-root": {
+    color: "gray", // This affects the label color (optional)
+  },
+};
 
 function EventTypeDropdown({ formData, handleChange }) {
   return (
@@ -208,9 +237,7 @@ function CateringForm() {
           onSubmitClick(formData, setFormData, setFormError, navigate)
         }
       >
-        <Typography
-          sx={{ fontSize: "20px", fontWeight: "bold", color: "dark" }}
-        >
+        <Typography sx={{ fontSize: "20px", color: "white" }}>
           Submit
         </Typography>
       </Button>

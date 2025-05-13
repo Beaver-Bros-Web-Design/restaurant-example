@@ -1,7 +1,8 @@
-from flask import Blueprint, request, Response
+from flask import Blueprint, request, Response, jsonify
 from werkzeug.utils import secure_filename
 import datetime
 from bson.binary import Binary
+
 
 def create_menu_blueprint(collection):
     bp = Blueprint("main", __name__)
@@ -22,28 +23,5 @@ def create_menu_blueprint(collection):
             "Content-Disposition": "inline; filename=menu.pdf"
         })
 
-    @bp.route("/upload-menu", methods=["POST"])
-    def upload_pdf():
-        if 'file' not in request.files:
-            return Response("No file part", status=400)
-
-        file = request.files['file']
-        if file.filename == '':
-            return Response("No selected file", status=400)
-
-        filename = secure_filename(file.filename or "")
-        file_bytes = file.read()
-
-        # Clear the collection (only one file allowed)
-        collection.delete_many({})
-
-        # Insert new menu document
-        collection.insert_one({
-            "filename": filename,
-            "uploaded_at": datetime.datetime.utcnow(),
-            "file": Binary(file_bytes)
-        })
-
-        return Response("Menu uploaded successfully", status=201)
 
     return bp

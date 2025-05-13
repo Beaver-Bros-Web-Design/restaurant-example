@@ -5,7 +5,6 @@ import CateringForm from "../components/CateringForm";
 function Catering() {
   return (
     <div style={{ position: "relative", height: "auto" }}>
-  
       <div
         style={{
           backgroundImage: "url(/images/catering-background.png)",
@@ -43,7 +42,9 @@ function Catering() {
             paddingTop: "50px",
           }}
         >
-          <Typography sx={{ fontWeight: "bold", fontSize: "30px" }}>
+          <Typography
+            sx={{ fontWeight: "bold", fontSize: "30px", color: "black" }}
+          >
             CATERING
           </Typography>
 
@@ -54,6 +55,7 @@ function Catering() {
               textAlign: "center",
               width: "70%",
               paddingBottom: "30px",
+              color: "black",
             }}
           >
             Please fill out the form below and we'll do our best to accommodate
