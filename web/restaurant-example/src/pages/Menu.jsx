@@ -1,183 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Chip, Container, Fade } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { Box, Typography, Container, Fade } from "@mui/material";
+
+import { Masonry } from "@mui/lab";
+import { Paper } from "@mui/material";
+
 import { useTheme } from "@mui/material/styles";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import dinnerMenu from "../dinnerMenu.json";
 import drinksMenu from "../drinksMenu.json";
-
-function MenuSection({ title, items }) {
-  const theme = useTheme();
-
-  return (
-    <Grid size={6}>
-      <Box 
-        sx={{
-          padding: 2, 
-          borderRadius: 2,
-          backgroundColor: "rgba(26, 26, 26, 0.9)",
-          border: `1px solid ${theme.palette.secondary.main}`,
-          boxShadow: `0 6px 16px rgba(220, 172, 88, 0.15)`,
-          height: "100%",
-        }}
-      >
-        <Typography
-          variant="h5"
-          sx={{
-            marginBottom: 2,
-            textAlign: "center",
-            color: theme.palette.secondary.main,
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            letterSpacing: "1.5px", 
-            borderBottom: `2px solid ${theme.palette.secondary.main}`,
-            paddingBottom: 1,
-            fontFamily: "'Poppins', sans-serif",
-          }}
-        >
-          {title}
-        </Typography>
-
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {items.map((item, index) => (
-            <Box
-              key={index}
-              sx={{
-                padding: 2, 
-                backgroundColor: "rgba(42, 42, 42, 0.7)",
-                borderRadius: 2,
-                border: `1px solid rgba(220, 172, 88, 0.3)`,
-                display: "flex",
-                flexDirection: "column",
-                gap: 0.3, 
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 600,
-                  color: "#ffffff",
-                  fontSize: "0.9rem", 
-                  fontFamily: "'Poppins', sans-serif",
-                  borderBottom: `1px dashed rgba(220, 172, 88, 0.4)`,
-                  paddingBottom: 0.5, 
-                }}
-              >
-                {item.name}
-              </Typography>
-
-              <Typography
-                variant="body2"
-                sx={{
-                  color: "#e2e2e2",
-                  fontSize: "0.75rem", 
-                  lineHeight: 1.4, 
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 300,
-                }}
-              >
-                {item.description}
-              </Typography>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontWeight: 600,
-                  color: theme.palette.secondary.main,
-                  fontSize: "1rem",
-                  marginTop: 0.3,
-                }}
-              >
-                ${item.price}
-              </Typography>
-
-              {item.dietaryIcons?.length > 0 && (
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: 0.5,
-                    flexWrap: "wrap",
-                    marginTop: 0.5,
-                  }}
-                >
-                  {item.dietaryIcons.map((icon, iconIndex) => (
-                    <Chip
-                      key={iconIndex}
-                      label={icon}
-                      size="small"
-                      sx={{
-                        backgroundColor: theme.palette.secondary.main,
-                        color: "#121212",
-                        fontWeight: 500,
-                        fontSize: "0.7rem", 
-                        borderRadius: "4px",
-                        paddingX: 0.4, 
-                      }}
-                    />
-                  ))}
-                </Box>
-              )}
-
-              {item.addOns && (
-                <Box sx={{ marginTop: 0.5 }}> 
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontStyle: "italic",
-                      color: "#bbbbbb",
-                      marginBottom: 0.5, 
-                    }}
-                  >
-                    Add-ons:
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      gap: 0.5, 
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    {item.addOns.map((addOn, addOnIndex) => (
-                      <Chip
-                        key={addOnIndex}
-                        label={addOn}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          borderColor: theme.palette.secondary.main,
-                          color: theme.palette.secondary.main,
-                          fontSize: "0.7rem",
-                          borderRadius: "4px",
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              )}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-    </Grid>
-  );
-}
+import MenuSection from "../components/MenuSection";
 
 function Menu() {
   const [activeStep, setActiveStep] = useState(0);
 
-  
-  const [menuType, setMenuType] = useState("dinner"); 
+  const [menuType, setMenuType] = useState("dinner");
   const menus = {
     dinner: dinnerMenu,
     drinks: drinksMenu,
   };
   const currentdinnerMenu = menus[menuType];
 
-
   const theme = useTheme();
   const images = [
     { label: "Image 1", imgPath: "/images/menuSlideshow/afqb0ov3.png" },
     { label: "Image 2", imgPath: "/images/menuSlideshow/ywpelqb8.png" },
+    {
+      label: "Image 3",
+      imgPath:
+        "images/menuSlideshow/ChatGPT Image May 12, 2025, 03_19_29 PM.png",
+    },
+    { label: "Image 4", imgPath: "images/menuSlideshow/756705814955940.jpg" },
   ];
   const maxSteps = images.length;
 
@@ -193,15 +45,12 @@ function Menu() {
     };
   }, [maxSteps]);
 
-
-
   return (
     <Box
       sx={{
         paddingY: 6,
         paddingX: { xs: 2, md: 4 },
         backgroundColor: theme.palette.background.default,
-        minHeight: "100vh",
       }}
     >
       <Container maxWidth="xl">
@@ -233,7 +82,7 @@ function Menu() {
         >
           <Box // slideshow
             sx={{
-              height: "400px",
+              height: "500px",
               position: "relative",
               overflow: "hidden",
             }}
@@ -269,17 +118,34 @@ function Menu() {
         </Box>
 
         {/* Buttons to toggle menu type */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, marginBottom: 4 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+            marginBottom: 4,
+          }}
+        >
           <button
             onClick={() => setMenuType("dinner")}
             style={{
-              padding: "10px 20px",
-              backgroundColor: menuType === "dinner" ? theme.palette.secondary.main : "#ccc",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
+              padding: "12px 28px",
+              backgroundColor:
+                menuType === "dinner"
+                  ? theme.palette.secondary.main
+                  : "#1c1c1c",
+              color: menuType === "dinner" ? "#1c1c1c" : "#f9c56b",
+              border: "2px solid #f9c56b",
+              borderRadius: "8px",
               cursor: "pointer",
               fontWeight: "bold",
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              transition: "all 0.3s ease",
+              boxShadow:
+                menuType === "dinner"
+                  ? "0 0 10px rgba(249, 197, 107, 0.6)"
+                  : "0 0 5px rgba(0, 0, 0, 0.3)",
             }}
           >
             Dinner Menu
@@ -287,28 +153,38 @@ function Menu() {
           <button
             onClick={() => setMenuType("drinks")}
             style={{
-              padding: "10px 20px",
-              backgroundColor: menuType === "drinks" ? theme.palette.secondary.main : "#ccc",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
+              padding: "12px 28px",
+              backgroundColor:
+                menuType === "drinks"
+                  ? theme.palette.secondary.main
+                  : "#1c1c1c",
+              color: menuType === "drinks" ? "#1c1c1c" : "#f9c56b",
+              border: "2px solid #f9c56b",
+              borderRadius: "8px",
               cursor: "pointer",
               fontWeight: "bold",
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              transition: "all 0.3s ease",
+              boxShadow:
+                menuType === "drinks"
+                  ? "0 0 10px rgba(249, 197, 107, 0.6)"
+                  : "0 0 5px rgba(0, 0, 0, 0.3)",
             }}
           >
             Drinks Menu
           </button>
         </Box>
 
-        <Grid container spacing={4}>
-          {currentdinnerMenu.map((section, sectionIndex) => (
-            <MenuSection
-              key={sectionIndex}
-              title={section.title}
-              items={section.items}
-            />
-          ))}
-        </Grid>
+        <Box sx={{ width: "100%", px: 2 }}>
+          <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={3}>
+            {currentdinnerMenu.map((section, sectionIndex) => (
+              <Paper key={sectionIndex} elevation={3} sx={{ p: 2 }}>
+                <MenuSection title={section.title} items={section.items} />
+              </Paper>
+            ))}
+          </Masonry>
+        </Box>
       </Container>
     </Box>
   );
