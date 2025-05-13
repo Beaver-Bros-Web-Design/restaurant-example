@@ -13,7 +13,7 @@ const ImageSlideshow = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 1000); // Change image every 5 seconds
+    }, 3000); // Change image every 5 seconds
     return () => clearInterval(timer);
   }, []);
 
