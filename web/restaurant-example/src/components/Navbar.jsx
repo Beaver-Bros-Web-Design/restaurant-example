@@ -15,11 +15,13 @@ const navLinkStyle = (theme, isActive) => ({
   color: "white",
   padding: "8px 16px",
   borderRadius: isActive ? "5px 5px 0 0" : "5px",
-  borderBottom: isActive ? `3px solid ${theme.palette.secondary.main }` : "3px solid transparent",
+  borderBottom: isActive
+    ? `3px solid ${theme.palette.secondary.main}`
+    : "3px solid transparent",
   transition: "0.3s",
   textDecoration: "none",
   "&:hover": {
-    backgroundColor: theme.palette.secondary.main ,
+    backgroundColor: theme.palette.secondary.main,
     color: "white",
     transform: "scale(1.)",
   },
@@ -72,8 +74,8 @@ export default function Navbar() {
           <Box
             component={RouterLink}
             to="/"
-            sx={{ 
-              display: "flex", 
+            sx={{
+              display: "flex",
               alignItems: "center",
               flex: 1,
             }}
@@ -104,7 +106,7 @@ export default function Navbar() {
                 maxWidth: "200px",
               }}
             />
-            
+
             {/* Navigation Links */}
             <Box
               sx={{
@@ -113,17 +115,30 @@ export default function Navbar() {
                 gap: 3,
               }}
             >
+              <RouterLink to="/" style={{ textDecoration: "none" }}>
+                <Box sx={navLinkStyle(theme, location.pathname === "/")}>
+                  HOME
+                </Box>
+              </RouterLink>
               <RouterLink to="/menu" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/menu")}>MENU</Box>
+                <Box sx={navLinkStyle(theme, location.pathname === "/menu")}>
+                  MENU
+                </Box>
               </RouterLink>
               <RouterLink to="/drinks" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/drinks")}>DRINKS</Box>
+                <Box sx={navLinkStyle(theme, location.pathname === "/drinks")}>
+                  DRINKS
+                </Box>
               </RouterLink>
               <RouterLink to="/catering" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/catering")}>CATERING</Box>
+                <Box
+                  sx={navLinkStyle(theme, location.pathname === "/catering")}
+                >
+                  CATERING
+                </Box>
               </RouterLink>
             </Box>
-            
+
             {/* Right Line */}
             <Box
               sx={{
@@ -136,8 +151,8 @@ export default function Navbar() {
           </Box>
 
           {/* Right: Social Icons */}
-          <Stack 
-            direction="row" 
+          <Stack
+            direction="row"
             spacing={2}
             sx={{ flex: 1, justifyContent: "flex-end" }}
           >
@@ -156,7 +171,6 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    
                     color: "white",
                     transform: "scale(1.2)",
                   },
@@ -178,7 +192,6 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    
                     color: "white",
                     transform: "scale(1.2)",
                   },
@@ -200,7 +213,6 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    
                     color: "white",
                     transform: "scale(1.2)",
                   },
@@ -222,7 +234,6 @@ export default function Navbar() {
                   color: "white",
                   transition: "0.3s",
                   "&:hover": {
-                    
                     color: "white",
                     transform: "scale(1.)",
                   },
@@ -232,12 +243,12 @@ export default function Navbar() {
           </Stack>
         </Box>
       </Box>
-      
+
       {/* Horizontal white line under the active nav link */}
       <Box
         sx={{
           height: "2px",
-          backgroundColor: theme.palette.primary.main, 
+          backgroundColor: theme.palette.primary.main,
           width: "100%",
           position: "relative",
         }}
