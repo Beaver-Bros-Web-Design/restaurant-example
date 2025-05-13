@@ -124,7 +124,17 @@ function Home() {
   return (
     <Box sx={{ backgroundColor: "black" }}>
       <Stack>
-        <ImageSlideshow />
+        <ImageSlideshow
+          images={[
+            "/images/home-slideshow1.png",
+            "/images/home-slideshow2.png",
+            "/images/home-slideshow3.png",
+          ]}
+          text={{
+            title: "WELCOME TO CHIMMY'S",
+            subtitle: "elegant eats and beautiful ambience",
+          }}
+        />
         <Box sx={{ height: "10px" }} />
         <Box sx={{ paddingLeft: "10px", paddingRight: "10px" }}>
           <AboutChimmys />

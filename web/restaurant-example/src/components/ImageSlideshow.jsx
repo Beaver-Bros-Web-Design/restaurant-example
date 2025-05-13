@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 
-const images = [
-  "/images/home-slideshow1.png",
-  "/images/home-slideshow2.png",
-  "/images/home-slideshow3.png",
-];
-
-const ImageSlideshow = () => {
+const ImageSlideshow = ({ images, text }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 5 seconds
+    }, 3000); // Change image every 3 seconds
     return () => clearInterval(timer);
-  }, []);
+  }, [images]);
 
   return (
     <Box
@@ -64,10 +58,10 @@ const ImageSlideshow = () => {
       >
         <Box sx={{ px: 2 }}>
           <h1 style={{ fontSize: "3rem", margin: 0, fontWeight: "bold" }}>
-            WELCOME TO CHIMMY'S
+            {text.title }
           </h1>
           <p style={{ fontSize: "1.5rem" }}>
-            elegant eats and beautiful ambience
+            {text.subtitle }
           </p>
         </Box>
       </Box>
