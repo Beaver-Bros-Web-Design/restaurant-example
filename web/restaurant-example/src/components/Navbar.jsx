@@ -116,9 +116,7 @@ export default function Navbar() {
               <RouterLink to="/menu" style={{ textDecoration: "none" }}>
                 <Box sx={navLinkStyle(theme, location.pathname === "/menu")}>MENU</Box>
               </RouterLink>
-              <RouterLink to="/drinks" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/drinks")}>DRINKS</Box>
-              </RouterLink>
+
               <RouterLink to="/catering" style={{ textDecoration: "none" }}>
                 <Box sx={navLinkStyle(theme, location.pathname === "/catering")}>CATERING</Box>
               </RouterLink>
