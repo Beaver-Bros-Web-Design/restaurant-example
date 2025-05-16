@@ -104,41 +104,7 @@ export default function Navbar() {
             />
           </Box>
 
-          {/* Hamburger for mobile */}
-          <Box sx={{ display: { xs: "block", md: "none" } }}>
-            <IconButton
-              color="inherit"
-              edge="end"
-              onClick={() => setDrawerOpen(true)}
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Drawer
-              anchor="right"
-              open={drawerOpen}
-              onClose={() => setDrawerOpen(false)}
-            >
-              <Box
-                sx={{ width: 220 }}
-                role="presentation"
-                onClick={() => setDrawerOpen(false)}
-              >
-                <List>
-                  {navLinks.map((link) => (
-                    <ListItem
-                      button
-                      component={RouterLink}
-                      to={link.to}
-                      key={link.to}
-                    >
-                      <ListItemText primary={link.label} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-            </Drawer>
-          </Box>
+
 
           {/* Center: Navigation Links with Lines on Both Sides (hide on mobile) */}
           <Box
@@ -210,6 +176,7 @@ export default function Navbar() {
                   height: "auto",
                   color: "white",
                   transition: "0.3s",
+                  display: { xs: "none", md: "flex" },
                   "&:hover": {
                     color: "white",
                     transform: "scale(1.2)",
@@ -231,6 +198,7 @@ export default function Navbar() {
                   height: "auto",
                   color: "white",
                   transition: "0.3s",
+                  display: { xs: "none", md: "flex" },
                   "&:hover": {
                     color: "white",
                     transform: "scale(1.2)",
@@ -252,6 +220,7 @@ export default function Navbar() {
                   height: "auto",
                   color: "white",
                   transition: "0.3s",
+                  display: { xs: "none", md: "flex" },
                   "&:hover": {
                     color: "white",
                     transform: "scale(1.2)",
@@ -259,6 +228,7 @@ export default function Navbar() {
                 }}
               />
             </MuiLink>
+            
             <MuiLink
               href="https://pinterest.com/Chimmys"
               target="_blank"
@@ -273,6 +243,8 @@ export default function Navbar() {
                   height: "auto",
                   color: "white",
                   transition: "0.3s",
+
+                  display: { xs: "none", md: "flex" },
                   "&:hover": {
                     color: "white",
                     transform: "scale(1.)",
@@ -280,9 +252,49 @@ export default function Navbar() {
                 }}
               />
             </MuiLink>
+                              <Box sx={{ display: { xs: "block", md: "none" }, ml: "auto" }}>
+            <IconButton
+              color="inherit"
+              edge="end"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={() => setDrawerOpen(false)}
+            >
+              <Box
+                sx={{ width: 220 }}
+                role="presentation"
+                onClick={() => setDrawerOpen(false)}
+              >
+                <List>
+                  {navLinks.map((link) => (
+                    <ListItem
+                      button
+                      component={RouterLink}
+                      to={link.to}
+                      key={link.to}
+                    >
+                      <ListItemText primary={link.label} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Drawer>
+          </Box>
           </Stack>
         </Box>
+
+
+
       </Box>
+
+                {/* Hamburger for mobile */}
+
 
       {/* Horizontal white line under the active nav link */}
       <Box
