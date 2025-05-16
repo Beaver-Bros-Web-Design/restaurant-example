@@ -1,10 +1,20 @@
-import React from "react";
-import { Box, Stack, Link as MuiLink } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Stack,
+  Link as MuiLink,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
+import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../assets/chimmys.png";
 import { useTheme } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
@@ -42,6 +52,13 @@ const iconLinkStyle = {
 export default function Navbar() {
   const theme = useTheme();
   const location = useLocation();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const navLinks = [
+    { to: "/", label: "HOME" },
+    { to: "/menu", label: "MENU" },
+    { to: "/catering", label: "CATERING" },
+  ];
 
   return (
     <Box
@@ -54,7 +71,7 @@ export default function Navbar() {
       <Box
         sx={{
           fontFamily: theme.typography.fontFamily,
-          backgroundColor: "black", // Set to black as shown in screenshot
+          backgroundColor: "black",
           color: "white",
           px: 4,
           py: 2,
@@ -87,10 +104,46 @@ export default function Navbar() {
             />
           </Box>
 
-          {/* Center: Navigation Links with Lines on Both Sides */}
+          {/* Hamburger for mobile */}
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <IconButton
+              color="inherit"
+              edge="end"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={() => setDrawerOpen(false)}
+            >
+              <Box
+                sx={{ width: 220 }}
+                role="presentation"
+                onClick={() => setDrawerOpen(false)}
+              >
+                <List>
+                  {navLinks.map((link) => (
+                    <ListItem
+                      button
+                      component={RouterLink}
+                      to={link.to}
+                      key={link.to}
+                    >
+                      <ListItemText primary={link.label} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Drawer>
+          </Box>
+
+          {/* Center: Navigation Links with Lines on Both Sides (hide on mobile) */}
           <Box
             sx={{
-              display: "flex",
+              display: { xs: "none", md: "flex" },
               justifyContent: "center",
               alignItems: "center",
               flex: 2,
@@ -103,7 +156,6 @@ export default function Navbar() {
                 height: "1px",
                 backgroundColor: "white",
                 flex: 1,
-                maxWidth: "200px",
               }}
             />
 
@@ -115,26 +167,17 @@ export default function Navbar() {
                 gap: 3,
               }}
             >
-              <RouterLink to="/" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/")}>
-                  HOME
-                </Box>
-              </RouterLink>
-              <RouterLink to="/menu" style={{ textDecoration: "none" }}>
-                <Box sx={navLinkStyle(theme, location.pathname === "/menu")}>
-                  MENU
-                </Box>
-              </RouterLink>
-
-              <RouterLink to="/catering" style={{ textDecoration: "none" }}>
-                <Box
-                  sx={navLinkStyle(theme, location.pathname === "/catering")}
+              {navLinks.map((link) => (
+                <RouterLink
+                  to={link.to}
+                  style={{ textDecoration: "none" }}
+                  key={link.to}
                 >
-                  CATERING
-                </Box>
-              </RouterLink>
-
-    
+                  <Box sx={navLinkStyle(theme, location.pathname === link.to)}>
+                    {link.label}
+                  </Box>
+                </RouterLink>
+              ))}
             </Box>
 
             {/* Right Line */}
@@ -143,7 +186,6 @@ export default function Navbar() {
                 height: "1px",
                 backgroundColor: "white",
                 flex: 1,
-                maxWidth: "200px",
               }}
             />
           </Box>

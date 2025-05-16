@@ -30,13 +30,13 @@ function Footer () {
             <Grid container spacing={2} sx={{ backgroundColor: "black",color: '#e2ded3', padding: 1, height:"auto" }}>
                 <Grid size={12} sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
                     <Stack sx={{ display: "flex", backgroundColor: 'none', paddingTop: 2, justifyContent:'center', alignItems:'center'}}>
-                    <img src={logo} style={{ width: '30vw', height: 'auto' }} alt="Chimmy's Logo"/>
+                    <img src={logo} style={{  height: 'auto' }} alt="Chimmy's Logo"/>
 
                     </Stack>
                 </Grid>
                 <Grid size={12} sx={{ display: "flex", justifyContent: "center", alignItems: "center", paddingTop: 0 }}>
                     <Stack spacing={2} direction="row" sx={{ display: "flex", justifyContent:"center", alignItems: "center" }}>
-                        <Divider  sx={{ height: "2px", backgroundColor: "#e2ded3", width:"100%" }} />
+                        <Divider  sx={{ height: "2px", backgroundColor: "#e2ded3", width:"100%", display: { xs: 'none', sm: 'block' } }} />
                         
                         <Link to="/" style={{ textDecoration: "none" }}>
                             <Box sx={navLinkStyle}>HOME</Box>
@@ -49,7 +49,7 @@ function Footer () {
                             <Box sx={navLinkStyle}>CATERING</Box>
                         </Link>
                         
-                        <Divider orientation="vertical" sx={{ height: "2px", backgroundColor: "#e2ded3", width:"100%" }} />
+                        <Divider orientation="vertical" sx={{ height: "2px", backgroundColor: "#e2ded3", width:"100%", display: { xs: 'none', sm: 'block' } }} />
                     </Stack>
                 </Grid>
 

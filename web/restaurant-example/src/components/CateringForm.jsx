@@ -167,7 +167,7 @@ function CateringForm() {
   return (
     <Stack
       sx={{
-        width: "40vw",
+       
         height: "auto",
         backgroundColor: "white",
         border: theme.palette.secondary.main,
