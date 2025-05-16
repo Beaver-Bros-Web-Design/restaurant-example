@@ -167,12 +167,12 @@ function CateringForm() {
   return (
     <Stack
       sx={{
-       
         height: "auto",
         backgroundColor: "white",
         border: theme.palette.secondary.main,
         alignItems: "center",
         paddingTop: "30px",
+        width: { xs: "80%", md: "50%" },
       }}
     >
       <Box sx={{ padding: "10px" }} />

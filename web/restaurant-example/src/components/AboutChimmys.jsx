@@ -17,7 +17,7 @@ function AboutChimmys() {
         display: "flex", // Added flexbox
         justifyContent: "center", // Center horizontally
         alignItems: "center", // Center vertically
-        height: "400px",
+        height: "auto",
       }}
     >
       <Box

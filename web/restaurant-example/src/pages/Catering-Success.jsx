@@ -42,7 +42,9 @@ function CateringSuccess() {
             paddingTop: "50px",
           }}
         >
-          <Typography sx={{ fontWeight: "bold", fontSize: "30px" }}>
+          <Typography
+            sx={{ fontWeight: "bold", fontSize: "30px", color: "black" }}
+          >
             CATERING
           </Typography>
 
@@ -53,6 +55,7 @@ function CateringSuccess() {
               textAlign: "center",
               width: "70%",
               paddingBottom: "30px",
+              color: "black",
             }}
           >
             Thank you for your request! We will get back to you as soon as

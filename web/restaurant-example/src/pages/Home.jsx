@@ -50,7 +50,7 @@ function Home() {
       <Box
         sx={{
           backgroundColor: theme.palette.background.main,
-          width: "50%",
+          width: { xs: "100%", md: "50%" },
           height: "400px",
           textAlign: "center",
           display: "flex", // ✅ add this
@@ -109,15 +109,16 @@ function Home() {
 
   function GoogleMap() {
     return (
-      <div
-        id="map"
-        ref={mapRef}
-        style={{
-          border: "1px solid #ccc",
-          width: "50%", // or "100%" as needed
-          height: "400px", // must give height!
-        }}
-      ></div>
+      <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+        <div
+          id="map"
+          ref={mapRef}
+          style={{
+            border: "1px solid #ccc",
+            height: "400px", // must give height!
+          }}
+        ></div>
+      </Box>
     );
   }
 
@@ -141,14 +142,16 @@ function Home() {
         </Box>
         <Box sx={{ height: "10px" }} />
         <Stack
-          direction={"row"}
+          direction={{ xs: "column", md: "row" }}
           sx={{
             height: "auto",
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
             paddingLeft: "10px",
             paddingRight: "10px",
+            minHeight: "300px", // optional fallback
+            alignItems: "center", // 🔑 make children take full height
+            paddingX: "10px",
           }}
         >
           <Hours />
