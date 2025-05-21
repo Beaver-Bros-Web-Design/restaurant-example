@@ -16,8 +16,7 @@ def create_app():
 
 
     config = Config()
-    print("Raw URI from env:", repr(os.getenv("MONGO_URI")))
-    print("Raw URI from config:", repr(config.uri))
+
 
     db_service = DbService(config.uri, config.db_name)
 

@@ -2,7 +2,8 @@ from flask import Blueprint, request, Response, jsonify
 from werkzeug.utils import secure_filename
 import datetime
 from bson.binary import Binary
-
+from bson.json_util import dumps, loads
+from bson import ObjectId
 def create_catering_blueprint(collection):
     bp = Blueprint("main", __name__)
 
@@ -35,6 +36,38 @@ def create_catering_blueprint(collection):
         except Exception as e:
             print(f"Error processing form: {e}")
             return jsonify({"error": "Something went wrong"}), 500
+        
+    @bp.route("/api/get-catering-forms", methods=["GET"])
+    def get_catering_forms():
+        try:
+            documents = collection.find()
+            
+            # Convert ObjectId to string inside each document
+            formatted_documents = []
+            for doc in documents:
+                doc["_id"] = str(doc["_id"])  # Convert ObjectId to string
+                formatted_documents.append(doc)
+
+            return jsonify(formatted_documents)  # Return a properly formatted JSON response
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+        
+
+    @bp.route("/api/delete-catering-form/<string:form_id>", methods=["DELETE"])
+    def delete_catering_form(form_id):
+
+        try:
+            result = collection.delete_one({"_id": ObjectId(form_id)})
+            
+            if result.deleted_count == 0:
+                return jsonify({"message": "Form not found"}), 404
+            
+            return jsonify({"message": f"Form {form_id} deleted successfully"})
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
+
+
 
 
     return bp
