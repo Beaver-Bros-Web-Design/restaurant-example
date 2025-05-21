@@ -104,8 +104,6 @@ export default function Navbar() {
             />
           </Box>
 
-
-
           {/* Center: Navigation Links with Lines on Both Sides (hide on mobile) */}
           <Box
             sx={{
@@ -228,7 +226,7 @@ export default function Navbar() {
                 }}
               />
             </MuiLink>
-            
+
             <MuiLink
               href="https://pinterest.com/Chimmys"
               target="_blank"
@@ -252,48 +250,44 @@ export default function Navbar() {
                 }}
               />
             </MuiLink>
-                              <Box sx={{ display: { xs: "block", md: "none" }, ml: "auto" }}>
-            <IconButton
-              color="inherit"
-              edge="end"
-              onClick={() => setDrawerOpen(true)}
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Drawer
-              anchor="right"
-              open={drawerOpen}
-              onClose={() => setDrawerOpen(false)}
-            >
-              <Box
-                sx={{ width: 220 }}
-                role="presentation"
-                onClick={() => setDrawerOpen(false)}
+            <Box sx={{ display: { xs: "block", md: "none" }, ml: "auto" }}>
+              <IconButton
+                color="inherit"
+                edge="end"
+                onClick={() => setDrawerOpen(true)}
+                aria-label="menu"
               >
-                <List>
-                  {navLinks.map((link) => (
-                    <ListItem
-                      button
-                      component={RouterLink}
-                      to={link.to}
-                      key={link.to}
-                    >
-                      <ListItemText primary={link.label} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-            </Drawer>
-          </Box>
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                anchor="right"
+                open={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+              >
+                <Box
+                  sx={{ width: 220 }}
+                  role="presentation"
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  <List>
+                    {navLinks.map((link) => (
+                      <ListItem
+                        button
+                        component={RouterLink}
+                        to={link.to}
+                        key={link.to}
+                      >
+                        <ListItemText primary={link.label} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
+              </Drawer>
+            </Box>
           </Stack>
         </Box>
-
-
-
       </Box>
 
-                {/* Hamburger for mobile */}
 
 
       {/* Horizontal white line under the active nav link */}
