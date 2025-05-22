@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Stack,
@@ -46,6 +47,12 @@ async function deleteCateringForm(id) {
 
 function Admin() {
   const [cateringData, setCateringData] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/auth");
+    }
+  }, [navigate]);
 
   useEffect(() => {
     async function fetchData() {
