@@ -69,6 +69,7 @@ function AdminLogin() {
   }
 
   return (
+    
     <div style={{ maxWidth: 300, margin: "2rem auto" }}>
       {showRegister ? (
         <form onSubmit={handleRegister}>
