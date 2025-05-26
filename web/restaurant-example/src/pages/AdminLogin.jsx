@@ -40,7 +40,7 @@ function AdminLogin() {
         setError("Invalid username or password");
       }
     } catch (err) {
-      setError("Network error: " + err.message);
+      setError("Network error: " + err.message + API_BASE_URL);
     }
   };
 
