@@ -18,7 +18,7 @@ function AdminLogin() {
     setError("");
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     try {
-      const res = await fetch(`${API_BASE_URL}/api/login`, {
+      const res = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -50,7 +50,7 @@ function AdminLogin() {
     setError("");
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     try {
-      const res = await fetch(`${API_BASE_URL}/api/register`, {
+      const res = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
