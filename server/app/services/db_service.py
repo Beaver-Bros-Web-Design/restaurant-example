@@ -11,4 +11,5 @@ class DbService:
 
     def get_collection_service(self, collection_name):
         db = self.get_database_service()
+        print(db)
         return db[collection_name]
