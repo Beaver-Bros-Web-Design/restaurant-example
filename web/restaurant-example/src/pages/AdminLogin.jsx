@@ -10,18 +10,24 @@ function AdminLogin() {
   const [showRegister, setShowRegister] = useState(false);
   const [registerMsg, setRegisterMsg] = useState("");
 
+
+  
+
   const handleLogin = async (e) => {
+    
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+    console.log(API_BASE_URL);
     e.preventDefault();
-    setError("");
+
     try {
-      const res = await fetch("/api/login", {
+      const res = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
       const data = await res.json();
       if (data.exists) {
-        // Store a simple token (for demo; use JWT in production)
+      
         localStorage.setItem("adminToken", "adminLoggedIn");
         setLoggedIn(true);
       } else {
@@ -36,8 +42,9 @@ function AdminLogin() {
     e.preventDefault();
     setRegisterMsg("");
     setError("");
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     try {
-      const res = await fetch("/api/register", {
+      const res = await fetch(`${API_BASE_URL}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
