@@ -14,27 +14,33 @@ function AdminLogin() {
   
 
   const handleLogin = async (e) => {
-    
-    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-    console.log(API_BASE_URL);
     e.preventDefault();
-
+    setError("");
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     try {
       const res = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = {};
+      }
+      if (!res.ok) {
+        setError(data.error || `Server error (${res.status})`);
+        return;
+      }
       if (data.exists) {
-      
         localStorage.setItem("adminToken", "adminLoggedIn");
         setLoggedIn(true);
       } else {
         setError("Invalid username or password");
       }
-    } catch {
-      setError("Server error");
+    } catch (err) {
+      setError("Network error: " + err.message);
     }
   };
 
