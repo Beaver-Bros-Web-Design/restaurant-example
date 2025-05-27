@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AdminLogin() {
   const [username, setUsername] = useState("");
@@ -9,9 +10,8 @@ function AdminLogin() {
   const [error, setError] = useState("");
   const [showRegister, setShowRegister] = useState(false);
   const [registerMsg, setRegisterMsg] = useState("");
+  const navigate = useNavigate(); 
 
-
-  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -33,9 +33,11 @@ function AdminLogin() {
         setError(data.error || `Server error (${res.status})`);
         return;
       }
+
       if (data.exists) {
         localStorage.setItem("adminToken", "adminLoggedIn");
         setLoggedIn(true);
+        navigate("/admin");
       } else {
         setError("Invalid username or password");
       }
@@ -48,6 +50,7 @@ function AdminLogin() {
     e.preventDefault();
     setRegisterMsg("");
     setError("");
+
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     try {
       const res = await fetch(`${API_BASE_URL}/register`, {
@@ -82,7 +85,6 @@ function AdminLogin() {
   }
 
   return (
-    
     <div style={{ maxWidth: 300, margin: "2rem auto" }}>
       {showRegister ? (
         <form onSubmit={handleRegister}>
@@ -91,22 +93,30 @@ function AdminLogin() {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             style={{ display: "block", width: "100%", marginBottom: 10 }}
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             style={{ display: "block", width: "100%", marginBottom: 10 }}
           />
-          <button type="submit" style={{ width: "100%" }}>Register</button>
-          <button type="button" style={{ width: "100%", marginTop: 10 }} onClick={() => setShowRegister(false)}>
+          <button type="submit" style={{ width: "100%" }}>
+            Register
+          </button>
+          <button
+            type="button"
+            style={{ width: "100%", marginTop: 10 }}
+            onClick={() => setShowRegister(false)}
+          >
             Back to Login
           </button>
           {error && <div style={{ color: "red", marginTop: 10 }}>{error}</div>}
-          {registerMsg && <div style={{ color: "green", marginTop: 10 }}>{registerMsg}</div>}
+          {registerMsg && (
+            <div style={{ color: "green", marginTop: 10 }}>{registerMsg}</div>
+          )}
         </form>
       ) : (
         <form onSubmit={handleLogin}>
@@ -115,22 +125,30 @@ function AdminLogin() {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             style={{ display: "block", width: "100%", marginBottom: 10 }}
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             style={{ display: "block", width: "100%", marginBottom: 10 }}
           />
-          <button type="submit" style={{ width: "100%" }}>Login</button>
-          <button type="button" style={{ width: "100%", marginTop: 10 }} onClick={() => setShowRegister(true)}>
+          <button type="submit" style={{ width: "100%" }}>
+            Login
+          </button>
+          <button
+            type="button"
+            style={{ width: "100%", marginTop: 10 }}
+            onClick={() => setShowRegister(true)}
+          >
             Create Account
           </button>
           {error && <div style={{ color: "red", marginTop: 10 }}>{error}</div>}
-          {registerMsg && <div style={{ color: "green", marginTop: 10 }}>{registerMsg}</div>}
+          {registerMsg && (
+            <div style={{ color: "green", marginTop: 10 }}>{registerMsg}</div>
+          )}
         </form>
       )}
     </div>
