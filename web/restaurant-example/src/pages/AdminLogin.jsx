@@ -10,15 +10,16 @@ function AdminLogin() {
   const [error, setError] = useState("");
   const [showRegister, setShowRegister] = useState(false);
   const [registerMsg, setRegisterMsg] = useState("");
-  const navigate = useNavigate(); 
-
+  const [oldUsername, setOldUsername] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     try {
-      const res = await fetch(`${API_BASE_URL}/login`, {
+      const res = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -50,8 +51,26 @@ function AdminLogin() {
     e.preventDefault();
     setRegisterMsg("");
     setError("");
-
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+    // check old credentials
+    try {
+      const loginRes = await fetch(`${API_BASE_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: oldUsername, password: oldPassword }),
+      });
+      const loginData = await loginRes.json();
+      if (!loginRes.ok || !loginData.exists) {
+        setError("Old admin credentials are incorrect.");
+        return;
+      }
+    } catch {
+      setError("Server error during admin check.");
+      return;
+    }
+
+    // If old credentials are valid, register new account
     try {
       const res = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
@@ -62,6 +81,10 @@ function AdminLogin() {
       if (res.ok) {
         setRegisterMsg("Account created! You can now log in.");
         setShowRegister(false);
+        setOldUsername("");
+        setOldPassword("");
+        setUsername("");
+        setPassword("");
       } else {
         setError(data.error || "Registration failed");
       }
@@ -91,14 +114,28 @@ function AdminLogin() {
           <h2>Register</h2>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Old Admin Username"
+            value={oldUsername}
+            onChange={(e) => setOldUsername(e.target.value)}
+            style={{ display: "block", width: "100%", marginBottom: 10 }}
+          />
+          <input
+            type="password"
+            placeholder="Old Admin Password"
+            value={oldPassword}
+            onChange={(e) => setOldPassword(e.target.value)}
+            style={{ display: "block", width: "100%", marginBottom: 10 }}
+          />
+          <input
+            type="text"
+            placeholder="New Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             style={{ display: "block", width: "100%", marginBottom: 10 }}
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="New Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={{ display: "block", width: "100%", marginBottom: 10 }}
